@@ -7,6 +7,10 @@ const rows = computed(() => candidates.value.map(candidate => ({
   skills: candidate.skills.join(', '),
   id: `${candidate.id}`,
 })))
+
+const onEdit = (id: number) => {
+  navigateTo(`/edit/${id}`)
+}
 </script>
 
 <template>
@@ -24,7 +28,7 @@ const rows = computed(() => candidates.value.map(candidate => ({
     </div>
     <CandidatesTable
       :rows="rows"
-      @edit="console.log($event)"
+      @edit="onEdit"
     />
   </div>
 </template>

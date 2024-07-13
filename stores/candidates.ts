@@ -105,7 +105,17 @@ export const useCandidatesStore = defineStore('candidates', () => {
     },
   ])
 
+  const addCandidate = (candidate: Candidate) => {
+    candidates.value.unshift(candidate)
+  }
+
+  const getCandidateById = (id: number) => {
+    return candidates.value.find(candidate => candidate.id === id)
+  }
+
   return {
     candidates,
+    addCandidate,
+    getCandidateById,
   }
 })
